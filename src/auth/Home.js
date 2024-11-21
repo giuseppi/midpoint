@@ -36,15 +36,42 @@ const Home = () => {
 
   return (
     <>
-      <nav>
-        <p>Welcome Home!</p>
+      <div style={styles.homeContainer}>
+        <h1 style={styles.homeHeader}>Home</h1>
 
         <div>
-          <button onClick={handleLogout}>Logout</button>
+          <button
+            style={styles.logoutButton}
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
         </div>
-      </nav>
+      </div>
     </>
   );
 };
 
 export default Home;
+
+const styles = {
+  homeContainer: {
+    textAlign: 'center',
+    marginTop: '50px',
+  },
+
+  homeHeader: {
+    fontSize: '2rem',
+    fontWeight: 'bold',
+  },
+
+  logoutButton: {
+    padding: '10px 20px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    border: 'none',
+    borderRadius: '5px',
+    color: 'white',
+    backgroundColor: '#a3a3a3',
+  },
+};
