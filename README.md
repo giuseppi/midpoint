@@ -6,10 +6,17 @@ A web application designed to simplify meet-up planning. Midpoint helps users fi
 
 - [Midpoint](#midpoint)
   - [Table of Contents](#table-of-contents)
+  - [Trello Board](#trello-board)
   - [Why?](#why)
   - [Overview](#overview)
   - [Installation](#installation)
   - [Usage](#usage)
+
+## Trello Board
+
+[Trello Board Link](https://trello.com/invite/b/673f837e15428ac482480ea2/ATTI6f0320c1a156e3e6c4219eb884ede23439879BC9/midpoint-📍)
+
+The Trello board serves as a Kanban-style project management tool to organize and track the development of Midpoint. By categorizing tasks into stages like “To Do,” “In Progress,” and “Done,” it provides a clear visual representation of progress and priorities. Using Trello ensures that development remains focused, collaborative, and efficient, enabling smooth task delegation and accountability throughout the project lifecycle.
 
 ## Why?
 
