@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import BackButton from '../components/BackButton';
+import BackButton from '../components/HomeButton';
 import { auth } from '../firebase';
 
 const Login = () => {

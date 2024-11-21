@@ -72,6 +72,6 @@ const styles = {
     border: 'none',
     borderRadius: '5px',
     color: 'white',
-    backgroundColor: '#a3a3a3',
+    backgroundColor: '#005f73',
   },
 };
