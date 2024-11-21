@@ -1,6 +1,7 @@
-import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import BackButton from '../components/BackButton';
 import { auth } from '../firebase';
 
 const Signup = () => {
@@ -9,47 +10,117 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const onSignup = (event) => {
-    event.preventDefault();
+  const onSignup = (e) => {
+    e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        sendEmailVerification(userCredential.user);
-        navigate('/home'); // Redirect after signup
+      .then(() => {
+        navigate('/home'); // Navigate to home page
       })
       .catch((err) => {
-        setError(err.message); // Display error message
+        setError(err.message); // Display error message to the user
       });
   };
 
   return (
-    <section>
-      <div>
-        <h2>Sign Up</h2>
-        <form onSubmit={onSignup}>
-          <div>
-            <label>Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label>Password:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit">Sign Up</button>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
-        </form>
-      </div>
-    </section>
+    <div className="container">
+      <BackButton />
+      <h2 style={styles.header}>Sign Up</h2>
+      <form
+        onSubmit={onSignup}
+        style={styles.form}
+      >
+        <div style={styles.inputGroup}>
+          <label style={styles.label}>Email: </label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={styles.input}
+          />
+        </div>
+        <div style={styles.inputGroup}>
+          <label style={styles.label}>Password: </label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            style={styles.input}
+          />
+        </div>
+        <button
+          type="submit"
+          style={styles.button}
+        >
+          Sign Up
+        </button>
+        {error && <p style={styles.error}>{error}</p>}
+      </form>
+      <p style={styles.text}>
+        Already have an account?{' '}
+        <NavLink
+          to="/login"
+          style={styles.link}
+        >
+          Log in
+        </NavLink>
+      </p>
+    </div>
   );
 };
 
 export default Signup;
+
+const styles = {
+  header: {
+    fontSize: '1.8rem',
+    marginBottom: '20px',
+    color: '#333',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+  },
+  inputGroup: {
+    textAlign: 'left',
+  },
+  label: {
+    fontSize: '1rem',
+    marginBottom: '5px',
+    display: 'block',
+    color: '#555',
+  },
+  input: {
+    width: '95%',
+    padding: '10px',
+    borderRadius: '5px',
+    border: '1px solid #ccc',
+    fontSize: '1rem',
+  },
+  button: {
+    padding: '10px 15px',
+    borderRadius: '5px',
+    border: 'none',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    fontSize: '1rem',
+    cursor: 'pointer',
+    marginTop: '10px',
+  },
+  error: {
+    color: 'red',
+    fontSize: '0.9rem',
+    marginTop: '10px',
+  },
+  text: {
+    fontSize: '0.9rem',
+    color: '#555',
+    marginTop: '15px',
+  },
+  link: {
+    color: '#4CAF50',
+    textDecoration: 'none',
+  },
+};
