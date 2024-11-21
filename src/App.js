@@ -1,28 +1,47 @@
-import React, { useState } from 'react';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
+import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './auth/Home';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+import { auth } from './firebase'; // Import your Firebase auth instance
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true); // For showing a loading state
 
-  const handleLogin = (username, password) => {
-    console.log('Logged in:', { username, password });
-    setIsAuthenticated(true); // Set authentication status to true
-  };
+  useEffect(() => {
+    // Firebase listener for authentication state changes
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+      setLoading(false); // Stop loading once the state is determined
+    });
+
+    return () => unsubscribe(); // Cleanup the listener on unmount
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>; // Display a loading message while checking auth state
+  }
 
   return (
     <Router>
       <div>
         <section>
           <Routes>
-            {/* If authenticated, redirect to Home */}
+            {/* Redirect to Home if authenticated */}
             <Route
               path="/"
               element={
                 isAuthenticated ? (
-                  <Home />
+                  <Navigate
+                    to="/home"
+                    replace
+                  />
                 ) : (
                   <div style={{ textAlign: 'center', marginTop: '50px' }}>
                     <h1>Welcome to Midpoint</h1>
@@ -60,6 +79,20 @@ function App() {
                 )
               }
             />
+            {/* Home route */}
+            <Route
+              path="/home"
+              element={
+                isAuthenticated ? (
+                  <Home />
+                ) : (
+                  <Navigate
+                    to="/"
+                    replace
+                  />
+                )
+              }
+            />
             {/* Signup route */}
             <Route
               path="/signup"
@@ -68,7 +101,7 @@ function App() {
             {/* Login route */}
             <Route
               path="/login"
-              element={<Login onLogin={handleLogin} />}
+              element={<Login />}
             />
           </Routes>
         </section>
