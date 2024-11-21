@@ -1,5 +1,3 @@
-import { faCircleLeft } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,35 +5,31 @@ const BackButton = () => {
   const navigate = useNavigate();
 
   return (
-    <button
+    <div
+      style={styles.logoContainer}
       onClick={() => navigate('/')}
-      style={styles.backButton}
     >
-      <FontAwesomeIcon
-        icon={faCircleLeft}
-        style={styles.icon}
-      />{' '}
-      Back
-    </button>
+      <img
+        src="/midpoint_logo.png"
+        alt="Logo"
+        style={styles.logo}
+      />
+    </div>
   );
 };
 
+export default BackButton;
+
 const styles = {
-  backButton: {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-    border: 'none',
-    color: 'darkgrey',
-    fontSize: '1rem',
+  logoContainer: {
+    position: 'absolute',
+    top: '10px',
+    left: '10px',
     cursor: 'pointer',
-    marginBottom: '10px',
-    textDecoration: 'none',
-    padding: '5px 0',
   },
-  icon: {
-    marginRight: '5px', // Adds space between the icon and text
+  logo: {
+    width: '30px', // Adjust size as needed
+    height: '30px', // Maintain aspect ratio
+    borderRadius: '15%',
   },
 };
-
-export default BackButton;

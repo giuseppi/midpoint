@@ -4,6 +4,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-d
 import Home from './auth/Home';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+import BackButton from './components/BackButton';
 import { auth } from './firebase'; // Import your Firebase auth instance
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <Router>
+      <BackButton />
       <div style={styles.main}>
         <section style={styles.section}>
           <Routes>
