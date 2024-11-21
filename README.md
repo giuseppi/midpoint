@@ -45,10 +45,8 @@ Once the app is running, you can:
 
 2. **Browse Suggestions**: Explore midpoint activities tailored to your preferences.
 
--
+3. **Vote**: Use the voting feature to decide on a location collaboratively.
 
-1. **Vote**: Use the voting feature to decide on a location collaboratively.
+4. **Save Favorites**: Bookmark favorite spots for future reference.
 
-2. **Save Favorites**: Bookmark favorite spots for future reference.
-
-3. **Get Notifications**: Stay informed about new activities and events.
+5. **Get Notifications**: Stay informed about new activities and events.
