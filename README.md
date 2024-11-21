@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Midpoint
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application designed to simplify meet-up planning. Midpoint helps users find activities, events, and places to meet halfway between two endpoints—ideal for friends, couples, and travelers.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Midpoint](#midpoint)
+  - [Table of Contents](#table-of-contents)
+  - [Why?](#why)
+  - [Overview](#overview)
+  - [Installation](#installation)
+  - [Usage](#usage)
 
-### `npm start`
+## Why?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Planning meet-ups is often a challenge, especially when busy schedules and long distances are involved. Midpoint solves this by:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Offering curated suggestions for locations midway between two endpoints.
+- Simplifying decision-making with filters, price ranges, and a voting system.
+- Encouraging meaningful connections by saving time and effort.
 
-### `npm test`
+Whether you’re online dating, reconnecting with friends, or planning a road trip, Midpoint makes it easier to meet halfway.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Overview
 
-### `npm run build`
+Midpoint is designed to bridge the gap between planning and spontaneity. Users input two locations, and the app calculates a convenient midpoint, presenting tailored suggestions for activities, restaurants, and events. The voting system helps users finalize plans effortlessly.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Key Features:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Midpoint Suggestions**: Automatically calculate a midpoint between two endpoints.
+- **Activity Recommendations**: Find restaurants, events, or activities using APIs like Google Maps and Yelp.
+- **Customizable Filters**: Sort by price range, activity type, and more.
+- **Voting System**: Collaboratively decide on a location with ease.
+- **Re-engagement Notifications**: Get notified of trending activities and events.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+TBA
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Once the app is running, you can:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Input Locationse**: Add two locations (manual or GPS-based).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **Browse Suggestions**: Explore midpoint activities tailored to your preferences.
 
-## Learn More
+-
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Vote**: Use the voting feature to decide on a location collaboratively.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Save Favorites**: Bookmark favorite spots for future reference.
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. **Get Notifications**: Stay informed about new activities and events.
