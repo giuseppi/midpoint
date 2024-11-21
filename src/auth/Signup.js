@@ -76,7 +76,7 @@ const styles = {
   header: {
     fontSize: '1.8rem',
     marginBottom: '20px',
-    color: '#333',
+    color: '#f0f0f0', // Updated for dark mode
   },
   form: {
     display: 'flex',
@@ -90,20 +90,22 @@ const styles = {
     fontSize: '1rem',
     marginBottom: '5px',
     display: 'block',
-    color: '#555',
+    color: '#ccc', // Updated for dark mode
   },
   input: {
     width: '95%',
     padding: '10px',
     borderRadius: '5px',
-    border: '1px solid #ccc',
+    border: '1px solid #444', // Updated for dark mode
     fontSize: '1rem',
+    backgroundColor: '#1e1e1e', // Updated for dark mode
+    color: '#f0f0f0', // Updated for dark mode
   },
   button: {
     padding: '10px 15px',
     borderRadius: '5px',
     border: 'none',
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#00796B', // Updated for dark mode
     color: 'white',
     fontSize: '1rem',
     cursor: 'pointer',
@@ -116,11 +118,11 @@ const styles = {
   },
   text: {
     fontSize: '0.9rem',
-    color: '#555',
+    color: '#ccc', // Updated for dark mode
     marginTop: '15px',
   },
   link: {
-    color: '#4CAF50',
+    color: '#005f73', // Updated for dark mode
     textDecoration: 'none',
   },
 };

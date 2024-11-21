@@ -101,15 +101,16 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundColor: '#f4f4f9',
+    backgroundColor: '#121212', // Dark background
   },
   section: {
     width: '100%',
     maxWidth: '600px',
-    backgroundColor: 'white',
+    backgroundColor: '#1e1e1e', // Darker section background
     padding: '20px',
     borderRadius: '8px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.6)', // Slightly stronger shadow for dark mode
+    color: 'white', // White text by default
   },
   container: {
     textAlign: 'center',
@@ -118,18 +119,18 @@ const styles = {
     fontSize: '2rem',
     fontWeight: 'bold',
     marginBottom: '20px',
-    color: '#333',
+    color: '#f0f0f0', // Light grey text
   },
   text: {
     marginBottom: '20px',
     fontSize: '1.2rem',
-    color: '#555',
+    color: '#ccc', // Slightly dimmed text for description
   },
   signupButton: {
     padding: '10px 20px',
     borderRadius: '5px',
     border: 'none',
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#00796B', // Greenish button for sign-up
     color: 'white',
     fontSize: '1rem',
     cursor: 'pointer',
@@ -139,7 +140,7 @@ const styles = {
     padding: '10px 20px',
     borderRadius: '5px',
     border: 'none',
-    backgroundColor: '#008CBA',
+    backgroundColor: '#005f73', // Bluish button for log-in
     color: 'white',
     fontSize: '1rem',
     cursor: 'pointer',
@@ -148,6 +149,6 @@ const styles = {
   loading: {
     fontSize: '1.5rem',
     textAlign: 'center',
-    color: '#555',
+    color: '#ccc',
   },
 };
