@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Login from './Login';
-import Signup from './Signup';
+import Home from './Home';
+import Login from './auth/Login';
+import Signup from './auth/Signup';
 
 function App() {
   const handleLogin = (username, password) => {
@@ -11,17 +12,27 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        {/* Default route points to Signup */}
-        <Route
-          path="/"
-          element={<Signup />}
-        />
-        <Route
-          path="/login"
-          element={<Login onLogin={handleLogin} />}
-        />
-      </Routes>
+      <div>
+        <section>
+          <Routes>
+            {/* Home route */}
+            <Route
+              path="/"
+              element={<Home />}
+            />
+            {/* Signup route */}
+            <Route
+              path="/signup"
+              element={<Signup />}
+            />
+            {/* Login route */}
+            <Route
+              path="/login"
+              element={<Login onLogin={handleLogin} />}
+            />
+          </Routes>
+        </section>
+      </div>
     </Router>
   );
 }
