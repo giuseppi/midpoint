@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    console.log(username, password);
     event.preventDefault();
+    console.log(username, password);
     onLogin(username, password);
   };
 
@@ -15,7 +17,7 @@ const Login = ({ onLogin }) => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username:</label>
+          <label>Username: </label>
           <input
             type="text"
             value={username}
@@ -23,7 +25,7 @@ const Login = ({ onLogin }) => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password: </label>
           <input
             type="password"
             value={password}
@@ -32,6 +34,13 @@ const Login = ({ onLogin }) => {
         </div>
         <button type="submit">Login</button>
       </form>
+      {/* Redirect to Signup button */}
+      <button
+        onClick={() => navigate('/')}
+        style={{ marginTop: '10px' }}
+      >
+        Don't have an account? Sign up
+      </button>
     </div>
   );
 };

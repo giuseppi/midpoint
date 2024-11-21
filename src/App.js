@@ -1,5 +1,7 @@
-import './App.css';
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Login from './Login';
+import Signup from './Signup';
 
 function App() {
   const handleLogin = (username, password) => {
@@ -8,9 +10,19 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Login onLogin={handleLogin} />
-    </div>
+    <Router>
+      <Routes>
+        {/* Default route points to Signup */}
+        <Route
+          path="/"
+          element={<Signup />}
+        />
+        <Route
+          path="/login"
+          element={<Login onLogin={handleLogin} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
