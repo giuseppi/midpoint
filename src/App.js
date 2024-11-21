@@ -4,6 +4,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-d
 import Home from './auth/Home';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+import GoogleLoginButton from './components/GoogleButton';
 import HomeButton from './components/HomeButton';
 import { auth } from './firebase'; // Import your Firebase auth instance
 
@@ -48,18 +49,21 @@ function App() {
                   <div style={styles.container}>
                     <h1 style={styles.header}>Welcome to Midpoint</h1>
                     <p style={styles.text}>Plan your meet-ups effortlessly. Sign up or log in to get started!</p>
-                    <button
-                      onClick={() => (window.location.href = '/signup')}
-                      style={styles.signupButton}
-                    >
-                      Sign Up
-                    </button>
-                    <button
-                      onClick={() => (window.location.href = '/login')}
-                      style={styles.loginButton}
-                    >
-                      Log In
-                    </button>
+                    <div style={styles.buttonGroup}>
+                      <button
+                        onClick={() => (window.location.href = '/signup')}
+                        style={{ ...styles.signupButton, ...styles.buttonBase }}
+                      >
+                        Sign Up
+                      </button>
+                      <button
+                        onClick={() => (window.location.href = '/login')}
+                        style={{ ...styles.loginButton, ...styles.buttonBase }}
+                      >
+                        Log In
+                      </button>
+                      <GoogleLoginButton style={{ ...styles.googleButton, ...styles.buttonBase }} />
+                    </div>
                   </div>
                 )
               }
@@ -115,7 +119,10 @@ const styles = {
     color: 'white', // White text by default
   },
   container: {
-    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column', // Stack items vertically
+    alignItems: 'center', // Center items horizontally
+    textAlign: 'center', // Center text within the container
   },
   header: {
     fontSize: '2rem',
@@ -128,25 +135,37 @@ const styles = {
     fontSize: '1.2rem',
     color: '#ccc', // Slightly dimmed text for description
   },
-  signupButton: {
+  buttonGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '10px',
+    marginTop: '20px',
+  },
+  buttonBase: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: '10px 20px',
+    fontSize: '14px',
+    fontWeight: 'bold',
     borderRadius: '5px',
     border: 'none',
-    backgroundColor: '#00796B', // Greenish button for sign-up
-    color: 'white',
-    fontSize: '1rem',
     cursor: 'pointer',
-    margin: '10px',
+    height: '50px', // Fixed height for uniformity
+    width: '200px', // Fixed width for uniformity
+  },
+  signupButton: {
+    backgroundColor: '#00796B',
+    color: 'white',
   },
   loginButton: {
-    padding: '10px 20px',
-    borderRadius: '5px',
-    border: 'none',
-    backgroundColor: '#005f73', // Bluish button for log-in
+    backgroundColor: '#005f73',
     color: 'white',
-    fontSize: '1rem',
-    cursor: 'pointer',
-    margin: '10px',
+  },
+  googleButton: {
+    backgroundColor: '#444444',
+    color: 'white',
   },
   loading: {
     fontSize: '1.5rem',

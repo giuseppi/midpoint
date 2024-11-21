@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import GoogleLoginButton from '../components/GoogleButton';
 import BackButton from '../components/HomeButton';
 import { auth } from '../firebase';
 
@@ -57,6 +58,7 @@ const Login = () => {
         </button>
         {error && <p style={styles.error}>{error}</p>}
       </form>
+      <GoogleLoginButton style={styles.button} />
       <p style={styles.text}>
         No account yet?{' '}
         <NavLink
