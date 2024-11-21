@@ -78,7 +78,7 @@ const styles = {
   header: {
     fontSize: '1.8rem',
     marginBottom: '20px',
-    color: '#f0f0f0', // Updated for dark mode
+    color: '#f0f0f0',
   },
   form: {
     display: 'flex',
@@ -92,24 +92,30 @@ const styles = {
     fontSize: '1rem',
     marginBottom: '5px',
     display: 'block',
-    color: '#ccc', // Updated for dark mode
+    color: '#ccc',
   },
   input: {
     width: '95%',
     padding: '10px',
     borderRadius: '5px',
-    border: '1px solid #444', // Updated for dark mode
+    border: '1px solid #444',
     fontSize: '1rem',
-    backgroundColor: '#1e1e1e', // Updated for dark mode
-    color: '#f0f0f0', // Updated for dark mode
+    backgroundColor: '#1e1e1e',
+    color: '#f0f0f0',
   },
   button: {
-    padding: '10px 15px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%', // Full width to match layout
+    height: '50px', // Consistent height
+    padding: '10px',
     borderRadius: '5px',
     border: 'none',
-    backgroundColor: '#005f73', // Updated for dark mode
+    backgroundColor: '#005f73',
     color: 'white',
     fontSize: '1rem',
+    fontWeight: 'bold',
     cursor: 'pointer',
     marginTop: '10px',
   },
@@ -120,11 +126,11 @@ const styles = {
   },
   text: {
     fontSize: '0.9rem',
-    color: '#ccc', // Updated for dark mode
+    color: '#ccc',
     marginTop: '15px',
   },
   link: {
-    color: '#00796B', // Updated for dark mode
+    color: '#00796B',
     textDecoration: 'none',
   },
 };

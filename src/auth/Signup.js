@@ -58,7 +58,7 @@ const Signup = () => {
         </button>
         {error && <p style={styles.error}>{error}</p>}
       </form>
-      <GoogleLoginButton />
+      <GoogleLoginButton style={styles.button} />
       <p style={styles.text}>
         Already have an account?{' '}
         <NavLink
@@ -104,12 +104,18 @@ const styles = {
     color: '#f0f0f0', // Updated for dark mode
   },
   button: {
-    padding: '10px 15px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%', // Full width to match layout
+    height: '50px', // Consistent height
+    padding: '10px',
     borderRadius: '5px',
     border: 'none',
-    backgroundColor: '#00796B', // Updated for dark mode
+    backgroundColor: '#005f73',
     color: 'white',
     fontSize: '1rem',
+    fontWeight: 'bold',
     cursor: 'pointer',
     marginTop: '10px',
   },

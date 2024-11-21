@@ -22,9 +22,7 @@ const GoogleLoginButton = ({ style }) => {
     <button
       style={{
         ...style,
-        display: 'flex', // Ensures content inside the button is flex-aligned
-        alignItems: 'center', // Vertically aligns items
-        justifyContent: 'center', // Centers content horizontally
+        ...defaultStyles.googleButton,
       }}
       onClick={handleGoogleLogin}
     >
@@ -32,15 +30,30 @@ const GoogleLoginButton = ({ style }) => {
       <img
         src="/google_icon.png"
         alt="Google Icon"
-        style={{
-          height: '30px',
-          width: '30px',
-          marginLeft: '5px', // Add spacing between icon and text
-          verticalAlign: 'middle',
-        }}
+        style={defaultStyles.icon}
       />
     </button>
   );
 };
 
 export default GoogleLoginButton;
+
+const defaultStyles = {
+  googleButton: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '10px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    border: 'none',
+    borderRadius: '5px',
+    backgroundColor: '#444444', // Muted dark background
+    color: 'white',
+    gap: '10px', // Space between icon and text
+  },
+  icon: {
+    height: '30px',
+    width: '30px',
+  },
+};
