@@ -2,7 +2,6 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import GoogleLoginButton from '../components/GoogleButton';
-import BackButton from '../components/HomeButton';
 import { auth } from '../firebase';
 
 const Login = () => {
@@ -24,7 +23,7 @@ const Login = () => {
 
   return (
     <div className="container">
-      <BackButton />
+      {/* <BackButton /> */}
       <h2 style={styles.header}>Login</h2>
       <form
         onSubmit={onLogin}

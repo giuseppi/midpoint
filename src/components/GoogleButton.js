@@ -45,6 +45,7 @@ const defaultStyles = {
     justifyContent: 'center',
     padding: '10px',
     fontSize: '16px',
+    fontWeight: 'bold',
     cursor: 'pointer',
     border: 'none',
     borderRadius: '5px',

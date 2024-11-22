@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase'; // Import your Firebase auth instance
 
-const BackButton = () => {
+const HomeButton = () => {
   const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -25,30 +25,16 @@ const BackButton = () => {
 
   return (
     <div
-      style={styles.logoContainer}
+      className="flex items-center justify-center cursor-pointer"
       onClick={handleNavigation}
     >
       <img
         src="/midpoint_logo.png"
         alt="Logo"
-        style={styles.logo}
+        className="w-8 h-8 rounded"
       />
     </div>
   );
 };
 
-export default BackButton;
-
-const styles = {
-  logoContainer: {
-    position: 'absolute',
-    top: '10px',
-    left: '10px',
-    cursor: 'pointer',
-  },
-  logo: {
-    width: '30px', // Adjust size as needed
-    height: '30px', // Maintain aspect ratio
-    borderRadius: '15%',
-  },
-};
+export default HomeButton;

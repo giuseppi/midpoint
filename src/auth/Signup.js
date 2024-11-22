@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import GoogleLoginButton from '../components/GoogleButton';
-import BackButton from '../components/HomeButton';
+// import BackButton from '../components/HomeButton';
 import { auth } from '../firebase';
 
 const Signup = () => {
@@ -24,7 +24,7 @@ const Signup = () => {
 
   return (
     <div className="container">
-      <BackButton />
+      {/* <BackButton /> */}
       <h2 style={styles.header}>Sign Up</h2>
       <form
         onSubmit={onSignup}

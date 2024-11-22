@@ -56,8 +56,9 @@ export default Home;
 
 const styles = {
   homeContainer: {
-    textAlign: 'center',
-    marginTop: '50px',
+    position: 'absolute',
+    top: '10px',
+    left: '10px',
   },
 
   homeHeader: {
