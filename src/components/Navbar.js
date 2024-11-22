@@ -1,11 +1,33 @@
-import { Navbar } from 'flowbite-react';
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Button, Navbar } from 'flowbite-react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { auth } from '../firebase';
 import HomeButton from './HomeButton';
 
 const MidpointNavbar = () => {
   const location = useLocation();
   const pathname = location.pathname;
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Check the user's authentication state
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsAuthenticated(!!user); // Update state based on user presence
+    });
+
+    return () => unsubscribe(); // Cleanup on component unmount
+  }, []);
+
+  // Handle logout
+  const handleLogout = async () => {
+    try {
+      await auth.signOut(); // Firebase logout
+      navigate('/'); // Redirect to home or login page after logout
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
 
   return (
     <Navbar
@@ -20,7 +42,7 @@ const MidpointNavbar = () => {
         </div>
       </Navbar.Brand>
       <Navbar.Toggle className="text-gray-400 hover:text-gray-400 hover:bg-gray-800 transition duration-300" />
-      <Navbar.Collapse className="lg:flex lg:space-x-4 space-y-2">
+      <Navbar.Collapse className="lg:flex lg:items-center lg:space-x-4 space-y-2">
         <Navbar.Link
           href="/"
           active={pathname === '/'}
@@ -42,6 +64,14 @@ const MidpointNavbar = () => {
         >
           Contact
         </Navbar.Link>
+        {isAuthenticated && (
+          <Button
+            onClick={handleLogout}
+            className=" bg-gray-900 hover:bg-red-950 text-white font-bold rounded-md transition duration-300"
+          >
+            Logout
+          </Button>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
