@@ -21,9 +21,8 @@ const Home = () => {
   }, [navigate]);
 
   return (
-    <div>
-      <h1>Welcome to Midpoint!</h1>
-      <MapComponent /> {/* Display the map */}
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <MapComponent />
     </div>
   );
 };

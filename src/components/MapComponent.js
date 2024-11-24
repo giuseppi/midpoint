@@ -10,16 +10,32 @@ const MapComponent = () => {
     return <div>Error: Mapbox access token is not defined.</div>;
   }
   return (
-    <Map
-      mapboxAccessToken={mapboxToken}
-      initialViewState={{
-        longitude: -122.4,
-        latitude: 37.8,
-        zoom: 14,
-      }}
-      style={{ width: 600, height: 400 }}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
-    />
+    <div style={{ height: '100%', width: '100%' }}>
+      <Map
+        mapboxAccessToken={mapboxToken}
+        initialViewState={{
+          longitude: -122.4,
+          latitude: 37.8,
+          zoom: 12,
+        }}
+        style={{ width: '100%', height: '100%' }}
+        mapStyle="mapbox://styles/mapbox/dark-v10"
+      >
+        <Marker
+          longitude={-122.4}
+          latitude={37.8}
+        >
+          <div
+            style={{
+              background: 'red',
+              width: '10px',
+              height: '10px',
+              borderRadius: '50%',
+            }}
+          />
+        </Marker>
+      </Map>
+    </div>
   );
 };
 
