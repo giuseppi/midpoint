@@ -4,6 +4,7 @@ import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-d
 import Home from './auth/Home';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+import About from './components/About';
 import GoogleLoginButton from './components/GoogleButton';
 import Navbar from './components/Navbar';
 import { auth } from './firebase'; // Import your Firebase auth instance
@@ -95,6 +96,10 @@ function App() {
             <Route
               path="/login"
               element={<Login />}
+            />
+            <Route
+              path="/about"
+              element={<About />}
             />
           </Routes>
         </section>
