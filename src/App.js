@@ -5,6 +5,7 @@ import Home from './auth/Home';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
 import About from './components/About';
+import Contact from './components/Contact';
 import GoogleLoginButton from './components/GoogleButton';
 import Navbar from './components/Navbar';
 import { auth } from './firebase'; // Import your Firebase auth instance
@@ -100,6 +101,10 @@ function App() {
             <Route
               path="/about"
               element={<About />}
+            />
+            <Route
+              path="/contact"
+              element={<Contact />}
             />
           </Routes>
         </section>
