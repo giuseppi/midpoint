@@ -14,10 +14,10 @@ const MapComponent = () => {
         (position) => {
           const { latitude, longitude } = position.coords;
           setUserLocation({ latitude, longitude });
-          console.log(userLocation); // Verify that latitude and longitude are correct
+          console.log({ latitude, longitude }); // Verify that latitude and longitude are correct
         },
         (error) => {
-          console.error('Error getting user location:', error);
+          console.error('Error getting user location: ', error);
           setUserLocation({ latitude: 33.6846, longitude: -117.8265 }); // Default location
         },
         {
