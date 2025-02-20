@@ -40,7 +40,7 @@ function App() {
       <Navbar />
       {/* Main Container */}
       <div className="main-container">
-        <section className="content-section">
+        <section className="content-section wide-content">
           <Routes>
             {/* Redirect to Home if authenticated */}
             <Route

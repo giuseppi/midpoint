@@ -1,9 +1,35 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Map, { Marker } from 'react-map-gl';
 
 const MapComponent = () => {
   const mapboxToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+
+  const [userLocation, setUserLocation] = useState(null);
+
+  useEffect(() => {
+    // Get user's current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ latitude, longitude });
+          console.log(userLocation); // Verify that latitude and longitude are correct
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+          setUserLocation({ latitude: 33.6846, longitude: -117.8265 }); // Default location
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0,
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  }, []);
 
   if (!mapboxToken) {
     console.error('Mapbox access token is missing.');
@@ -11,14 +37,9 @@ const MapComponent = () => {
   }
 
   const initialView = {
-    longitude: -117.8265,
-    latitude: 33.6846,
+    longitude: userLocation?.longitude || -117.8265, // Default longitude
+    latitude: userLocation?.latitude || 33.6846, // Default latitude
     zoom: 12,
-  };
-
-  const initialMarker = {
-    longitude: initialView.longitude + 0.01, // Shift slightly east
-    latitude: initialView.latitude - 0.01, // Shift slightly south
   };
 
   return (
@@ -29,19 +50,22 @@ const MapComponent = () => {
         style={{ width: '100%', height: '100%' }}
         mapStyle="mapbox://styles/mapbox/dark-v10"
       >
-        <Marker
-          longitude={initialMarker.longitude}
-          latitude={initialMarker.latitude}
-        >
-          <div
-            style={{
-              background: 'red',
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-            }}
-          />
-        </Marker>
+        {userLocation && (
+          <Marker
+            longitude={userLocation.longitude}
+            latitude={userLocation.latitude}
+          >
+            <div
+              style={{
+                backgroundColor: 'red',
+                width: '10px',
+                height: '10px',
+                borderRadius: '50%',
+                border: '2px solid white',
+              }}
+            />
+          </Marker>
+        )}
       </Map>
     </div>
   );

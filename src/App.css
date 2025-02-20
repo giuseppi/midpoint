@@ -25,14 +25,42 @@ body {
 }
 
 /* Section Wrapper */
-.content-section {
+/* .content-section {
   width: 100%;
   max-width: 600px;
-  background-color: #1e1e1e; /* Slightly lighter background */
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
   text-align: center;
+} */
+
+/* Default styles for all content sections */
+.content-section {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  transition: max-width 0.3s ease;
+}
+
+/* Specific styles for different components */
+.home-content {
+  max-width: 600px; /* Narrow width for home */
+}
+
+.home-main-content {
+  max-width: 800px; /* Slightly wider for the main page */
+}
+
+.about-content {
+  max-width: 700px; /* Custom width for the About page */
+}
+
+.contact-content {
+  max-width: 1000px; /* Wider layout for Contact page */
 }
 
 /* Heading Styles */
