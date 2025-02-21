@@ -1,4 +1,5 @@
 import mapboxgl from 'mapbox-gl';
+import { MapboxStyleSwitcherControl } from 'mapbox-gl-style-switcher';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import React, { useEffect, useRef } from 'react';
 import Map, { Marker } from 'react-map-gl';
@@ -12,9 +13,20 @@ const MapComponent = () => {
   useEffect(() => {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZ2l1c2VwcGkiLCJhIjoiY20zdGFqOW91MDVuMTJrbzlsZ2t0d3F3eiJ9.b9YtUGXY_2WXxHeChPJc9A';
 
+    const styles = [
+      {
+        title: 'Dark',
+        uri: 'mapbox://styles/mapbox/dark-v11',
+      },
+      {
+        title: 'Light',
+        uri: 'mapbox://styles/mapbox/standard',
+      },
+    ];
+
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-      style: 'mapbox://styles/mapbox/streets-v12',
+      style: 'mapbox://styles/mapbox/standard',
       center: [-24, 42],
       zoom: 1,
     });
@@ -30,6 +42,8 @@ const MapComponent = () => {
       })
     );
 
+    mapRef.current.addControl(new MapboxStyleSwitcherControl(styles));
+
     return () => {
       mapRef.current.remove();
     };
@@ -40,38 +54,7 @@ const MapComponent = () => {
     return <div>Error: Mapbox access token is not defined.</div>;
   }
 
-  // const initialView = {
-  //   longitude: userLocation?.longitude || -117.8265, // Default longitude
-  //   latitude: userLocation?.latitude || 33.6846, // Default latitude
-  //   zoom: 12,
-  // };
-
   return (
-    // <div style={{ height: '100%', width: '100%' }}>
-    //   <Map
-    //     mapboxAccessToken={mapboxToken}
-    //     // initialViewState={initialView}
-    //     style={{ width: '100%', height: '100%' }}
-    //     mapStyle="mapbox://styles/mapbox/dark-v10"
-    //   >
-    //     {userLocation && (
-    //       <Marker
-    //         longitude={userLocation.longitude}
-    //         latitude={userLocation.latitude}
-    //       >
-    //         <div
-    //           style={{
-    //             backgroundColor: 'red',
-    //             width: '10px',
-    //             height: '10px',
-    //             borderRadius: '50%',
-    //             border: '2px solid white',
-    //           }}
-    //         />
-    //       </Marker>
-    //     )}
-    //   </Map>
-    // </div>
     <div
       id="map"
       ref={mapContainerRef}
