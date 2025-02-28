@@ -1,17 +1,23 @@
-import { APIProvider, Map } from '@vis.gl/react-google-maps';
-import React from 'react';
+import { APIProvider, Map, useMap } from '@vis.gl/react-google-maps';
+import React, { useEffect } from 'react';
 
 const googleMapsKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 const MapComponent = () => {
+  const map = useMap(); // Get access to the Google Maps instance
+
+  useEffect(() => {
+    if (!map) return;
+
+    // here you can interact with the imperative maps API
+  }, [map]); // Runs when `map` is available
+
   return (
     <APIProvider apiKey={googleMapsKey}>
       <Map
         style={{ height: '90vh' }}
-        defaultCenter={{ lat: 22.54992, lng: 0 }}
-        defaultZoom={3}
-        gestureHandling={'greedy'}
-        disableDefaultUI={true}
+        defaultCenter={{ lat: 33.6846, lng: -117.8265 }}
+        defaultZoom={12}
         options={{ styles: darkModeStyles }}
       />
     </APIProvider>
