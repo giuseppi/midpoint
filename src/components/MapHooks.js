@@ -1,10 +1,20 @@
-import { useMap } from '@vis.gl/react-google-maps';
+import { useMap, useMapsLibrary } from '@vis.gl/react-google-maps';
 import { useEffect, useState } from 'react';
 
-const MapHooks = ({ onLocationUpdate }) => {
+const MapHooks = ({ onLocationUpdate, onMapReady }) => {
   const [userPosition, setUserPosition] = useState(null);
   const [geoError, setGeoError] = useState(null);
+
   const map = useMap(); // Get access to the Google Map instance
+
+  // Ensures map's instance is ready before calling onMapReady
+  useEffect(() => {
+    if (map && typeof onMapReady === 'function') {
+      // Ensure it's a function before calling
+      console.log('Map instance loaded:', map);
+      onMapReady(map);
+    }
+  }, [map, onMapReady]);
 
   // Get user's geolocation
   useEffect(() => {
