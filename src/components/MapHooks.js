@@ -1,4 +1,4 @@
-import { useMap, useMapsLibrary } from '@vis.gl/react-google-maps';
+import { useMap } from '@vis.gl/react-google-maps';
 import { useEffect, useState } from 'react';
 
 const MapHooks = ({ onLocationUpdate, onMapReady }) => {
